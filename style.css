@@ -1,0 +1,10 @@
+
+body {
+  background-color:black;
+  font-family: "courier", monospace;
+  font-size: large;
+  color: red;
+}
+#canvas {
+  background-color: red;
+}

@@ -1,0 +1,113 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>Right Angled Triangle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>Ma Right Angled Triangle 2</header>	
+<canvas id="canvas" width="300" height="300"></canvas>
+<header>Justin Broodbakker MD1B</header>    
+<script src="utils.js"></script>
+<script src="triangle.js"></script>
+<script>
+window.onload = function () {
+var canvas = document.getElementById('canvas');
+context = canvas.getContext('2d');        
+var posX = 0;
+var posY = 0;
+var speed = 0.1;
+var lifeCycle = 1;
+var aantal = 10;
+var triangle = [];
+         /* triangle1 = new Triangle();
+          triangle1.colorFill = "#FF0000";
+          triangle2 = new triangle();
+          triangle2.colorFill = "#0000FF";*/     
+for (var i = 0; i < aantal; i++){
+triangle[i] = new Triangle;
+triangle[i].xLeft = 20 + 30*i;
+triangle[i].yLeft = 20 + 20*i;
+}         
+(function drawFrame () {
+window.requestAnimationFrame(drawFrame, canvas);
+context.clearRect(0, 0, canvas.width, canvas.height);              
+              /*window.requestAnimationFrame(drawFrame, canvas);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                triangle1.xLeft = canvas.width / 2; // fixed point triangle
+                triangle1.yLeft = canvas.height / 2; // fixed point triangle
+                triangle1.x = posX;
+                triangle1.y = posY;
+                triangle1.draw(context);
+
+          
+                if (posX <= canvas.width && lifeCycle == 1) {
+                    posX += 1;
+                    triangle1.colorFill="#000099";
+                     
+                }
+                if (posX > canvas.width && lifeCycle == 1) {
+                    lifeCycle = 2;
+                    triangle1.colorFill="#990099"
+                }
+                if (lifeCycle == 2 && posY <= canvas.height) {
+                    posY += 1;
+                   
+                }
+                if (lifeCycle == 2 && posY > canvas.height) {
+                    lifeCycle = 3;
+                }
+                if (lifeCycle == 3 && posY > canvas.height) {
+                    posX -= 1;
+                     triangle1.colorFill="#ff0000";
+                }
+
+                if (lifeCycle == 3 && posX <= 0) {
+                    lifeCycle = 4
+                }
+                if (lifeCycle == 4 && posX < canvas.width) {
+                    posY -= 1;
+                    triangle1.colorFill="#66ff33";
+                    
+                }
+                     if (lifeCycle == 4 && posY <= 0) {
+
+                    lifeCycle = 1;//respawn
+
+                }*/
+for (var i = 0; i < aantal; i++){      			
+triangle[i].x = posX;
+triangle[i].y = posY;			 
+switch (lifeCycle) {
+case 1:
+posX += speed;
+if (posX >= canvas.width) {
+lifeCycle = 2;
+}
+break;
+case 2:
+posY += speed;
+if (posY >= canvas.height) {
+lifeCycle = 3;
+}
+break;
+case 3:
+posX -= speed;
+if (posX <= 0) {
+lifeCycle = 4;
+}
+break;
+case 4:
+posY -= speed;
+if (posY <= 0) {
+lifeCycle = 1;
+}
+break;
+}
+triangle[i].draw(context);
+}             
+}());
+};
+</script>
+</body>
+</html>
